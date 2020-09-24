@@ -9,19 +9,19 @@
 	import './assets/styles/test.styl'
 	import todo from './views/todo.vue'
 	export default {
-		name: 'App',
-		components: {
-			todo
-		},
-		data () {
-			return {
-				name: '张三221111122',
-				age: '23'
-			}
-		},
-		mounted () {
-			console.log('jkjk');
-		}
+	  name: 'App',
+	  components: {
+	    todo
+	  },
+	  data () {
+	    return {
+	      name: '张三221111122',
+	      age: '23'
+	    }
+	  },
+	  mounted () {
+	    console.log('jkjk')
+	  }
 	}
 </script>
 
@@ -31,4 +31,3 @@
 		font-size: 15px;
 	}
 </style>
-
