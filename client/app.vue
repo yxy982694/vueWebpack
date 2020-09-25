@@ -1,8 +1,11 @@
 <template>
-	<div>
-		<div>jwwwkjk2wwwww2111221111222222{{name}}</div>
-		<todo></todo>
-	</div>
+  <div>
+    <div>
+      <router-link to="/login">登录页</router-link>
+      <router-link to="/todo">todo页</router-link>
+    </div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -28,6 +31,6 @@
 <style scoped>
 	div{
 		border: 1px solid yellow;
-		font-size: 15px;
+		font-size: 13px;
 	}
 </style>

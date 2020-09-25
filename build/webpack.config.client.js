@@ -4,6 +4,7 @@ const HTMLPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const baseConfig = require('./webpack.config.base.js')
 const merge = require('webpack-merge')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 let config
 const devServer = {
@@ -20,7 +21,10 @@ const defaultPlugins = [
 			NODE_ENV: isDev?'"development"':'"production"'
 		}
 	}),
-	new HTMLPlugin()
+	new HTMLPlugin({
+    template: path.join(__dirname,'template.html'),
+  }),
+  new VueClientPlugin()
 ]
 if (isDev) { // 开发环境
 	config = merge(baseConfig,{
