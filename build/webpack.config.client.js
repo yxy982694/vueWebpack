@@ -6,9 +6,10 @@ const baseConfig = require('./webpack.config.base.js')
 const merge = require('webpack-merge')
 const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NODE_ENV === 'development'
+console.log('process.env.NODE_ENV:--'+process.env.NODE_ENV)
 let config
 const devServer = {
-	port: 8081,
+	port: 8080,
 	host: '0.0.0.0',// 可以用localhost可以访问，ip也可以访问
 	overlay: {
 		errors: true
@@ -27,6 +28,7 @@ const defaultPlugins = [
   new VueClientPlugin()
 ]
 if (isDev) { // 开发环境
+  console.log('我是开发环境')
 	config = merge(baseConfig,{
 		devtool: 'cheap-module-eval-source-map',
 		module: {
@@ -53,6 +55,7 @@ if (isDev) { // 开发环境
 		)
 	})
 } else { // 生产环境
+  console.log('我是生产环境')
 	config = merge(baseConfig,{
 		entry: {
 			app: path.join(__dirname,'../client/index.js'),

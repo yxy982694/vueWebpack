@@ -2,7 +2,7 @@
 // 包括:
 //   模板文件ejs
 //   在node环境中通过webpack打包后的文件代码json
-//   在web环境的中通过webpack打包后的文件代码json,包括js和css的文件路径
+//   在web环境的中通过webpack打包后的文件代码json,包括js和css的文件路径--测试
 // 把这3部分组合成一个新的html,通过koa的send的ctx.body = html  发送到浏览器
 const Router = require('koa-router')
 const axios = require('axios')
@@ -19,7 +19,7 @@ serverCompiler.outputFileSystem = mfs
 let bundle
 serverCompiler.watch({},(err,stats)=>{
   if (err) throw err
-  stats = stats.toJSON()
+  stats = stats.toJson()
   stats.errors.forEach(err=>console.log(err))
   stats.warnings.forEach(warn => console.log(warn))
   const bundlePath = path.join(
@@ -49,7 +49,7 @@ const handleSSR = async (ctx) => {
   const renderer = VueServerRenderer
         .createBundleRenderer(bundle,{
           inject: false,
-          clientManifest
+          clientMainfest
         })
   await serverRender(ctx,renderer,template)
 }
